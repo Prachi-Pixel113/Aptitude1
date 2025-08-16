@@ -179,7 +179,7 @@ const QuizPage = ({ user, onLogout }) => {
         <div className="container" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
           <Link to="/" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', textDecoration: 'none' }}>
             <Brain className="text-accent-primary" size={24} />
-            <span className="heading-3" style={{ margin: 0 }}>TriApt</span>
+            <span className="heading-3" style={{ margin: 0, color: 'var(--accent-text)' }}>TriApt</span>
           </Link>
           
           <div style={{ display: 'flex', alignItems: 'center', gap: '2rem' }}>
