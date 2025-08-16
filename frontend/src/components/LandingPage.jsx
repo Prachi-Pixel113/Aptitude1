@@ -38,21 +38,33 @@ const LandingPage = ({ user, onLogout }) => {
     setChatMessages(prev => [...prev, { type: 'user', text: userMessage }]);
     setChatInput('');
 
-    // Find matching response based on keywords
-    const response = chatbotResponses.find(item => 
-      item.keywords.some(keyword => 
-        userMessage.toLowerCase().includes(keyword.toLowerCase())
-      )
-    );
-
     setTimeout(() => {
-      if (response) {
-        setChatMessages(prev => [...prev, { type: 'bot', text: response.response }]);
+      // Randomly choose what type of response to give
+      const responseType = Math.floor(Math.random() * 4); // 0, 1, 2, or 3
+      
+      let botResponse = '';
+      
+      if (responseType === 0) {
+        // Ask a random question
+        const randomQuestion = randomTriAptQuestions[Math.floor(Math.random() * randomTriAptQuestions.length)];
+        botResponse = randomQuestion;
+      } else if (responseType === 1) {
+        // Share a random fact
+        const randomFact = randomTriAptFacts[Math.floor(Math.random() * randomTriAptFacts.length)];
+        botResponse = randomFact;
+      } else if (responseType === 2) {
+        // Engagement response + random fact
+        const engagement = chatbotEngagementResponses[Math.floor(Math.random() * chatbotEngagementResponses.length)];
+        const randomFact = randomTriAptFacts[Math.floor(Math.random() * randomTriAptFacts.length)];
+        botResponse = `${engagement} ${randomFact}`;
       } else {
-        // Use random fallback response for unmatched questions
-        const randomFallback = fallbackResponses[Math.floor(Math.random() * fallbackResponses.length)];
-        setChatMessages(prev => [...prev, { type: 'bot', text: randomFallback }]);
+        // Engagement response + random question
+        const engagement = chatbotEngagementResponses[Math.floor(Math.random() * chatbotEngagementResponses.length)];
+        const randomQuestion = randomTriAptQuestions[Math.floor(Math.random() * randomTriAptQuestions.length)];
+        botResponse = `${engagement} ${randomQuestion}`;
       }
+      
+      setChatMessages(prev => [...prev, { type: 'bot', text: botResponse }]);
     }, 500);
   };
 
