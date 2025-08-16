@@ -59,7 +59,7 @@ const LandingPage = ({ user, onLogout }) => {
       <header className="nav-header">
         <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
           <Brain className="text-accent-primary" size={24} />
-          <span className="heading-3" style={{ margin: 0 }}>TriApt</span>
+          <span className="heading-3" style={{ margin: 0, color: 'var(--accent-text)' }}>TriApt</span>
         </div>
         <nav style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
           <a href="#features" className="nav-link">Features</a>
