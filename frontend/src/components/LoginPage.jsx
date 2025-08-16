@@ -38,7 +38,7 @@ const LoginPage = ({ onLogin }) => {
         <div style={{ textAlign: 'center', marginBottom: '2rem' }}>
           <Link to="/" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', textDecoration: 'none', marginBottom: '1rem' }}>
             <Brain className="text-accent-primary" size={32} />
-            <span className="heading-2" style={{ margin: 0, color: 'var(--text-primary)' }}>TriApt</span>
+            <span className="heading-2" style={{ margin: 0, color: 'var(--accent-text)' }}>TriApt</span>
           </Link>
           <h1 className="heading-3" style={{ margin: '1rem 0 0.5rem 0' }}>Welcome Back</h1>
           <p className="body-medium" style={{ color: 'var(--text-secondary)', margin: 0 }}>
