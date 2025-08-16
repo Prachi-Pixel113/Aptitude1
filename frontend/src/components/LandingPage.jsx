@@ -241,11 +241,11 @@ const LandingPage = ({ user, onLogout }) => {
       </section>
 
       {/* Footer */}
-      <footer className="pad-xl" style={{ background: 'var(--text-primary)', color: 'white' }}>
+      <footer className="pad-xl" style={{ background: 'var(--accent-text)', color: 'white' }}>
         <div className="container" style={{ textAlign: 'center' }}>
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem', marginBottom: '1rem' }}>
-            <Brain size={24} />
-            <span className="heading-3" style={{ margin: 0 }}>TriApt</span>
+            <Brain size={24} style={{ color: 'var(--accent-primary)' }} />
+            <span className="heading-3" style={{ margin: 0, color: 'var(--accent-primary)' }}>TriApt</span>
           </div>
           <p className="body-medium" style={{ marginBottom: '1rem' }}>
             Free Computer Science & Engineering Aptitude Tests for Everyone
