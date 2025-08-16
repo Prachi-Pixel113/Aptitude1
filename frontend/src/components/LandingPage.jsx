@@ -38,7 +38,7 @@ const LandingPage = ({ user, onLogout }) => {
     setChatMessages(prev => [...prev, { type: 'user', text: userMessage }]);
     setChatInput('');
 
-    // Find matching response
+    // Find matching response based on keywords
     const response = chatbotResponses.find(item => 
       item.keywords.some(keyword => 
         userMessage.toLowerCase().includes(keyword.toLowerCase())
@@ -46,10 +46,13 @@ const LandingPage = ({ user, onLogout }) => {
     );
 
     setTimeout(() => {
-      setChatMessages(prev => [...prev, { 
-        type: 'bot', 
-        text: response ? response.response : "I'm not sure about that. Try asking about our test topics, pricing, or how to get started!"
-      }]);
+      if (response) {
+        setChatMessages(prev => [...prev, { type: 'bot', text: response.response }]);
+      } else {
+        // Use random fallback response for unmatched questions
+        const randomFallback = fallbackResponses[Math.floor(Math.random() * fallbackResponses.length)];
+        setChatMessages(prev => [...prev, { type: 'bot', text: randomFallback }]);
+      }
     }, 500);
   };
 
