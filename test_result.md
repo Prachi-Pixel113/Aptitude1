@@ -105,10 +105,10 @@
 user_problem_statement: "Change TriApt chatbot from specific keyword-based question-answer system to random questions and facts about TriApt - implementing options A (ask random questions), B (show random facts), and maintain interactive responses."
 
 frontend:
-  - task: "Random Chatbot Functionality"
+  - task: "Random Chatbot Implementation - Questions and Facts"
     implemented: true
     working: true
-    file: "/app/frontend/src/components/LandingPage.jsx"
+    file: "/app/frontend/src/mock.js, /app/frontend/src/components/LandingPage.jsx"
     stuck_count: 0
     priority: "high"
     needs_retesting: false
