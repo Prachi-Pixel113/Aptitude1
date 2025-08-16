@@ -8,7 +8,7 @@ const LandingPage = ({ user, onLogout }) => {
   const [timeLeft, setTimeLeft] = useState({});
   const [chatOpen, setChatOpen] = useState(false);
   const [chatMessages, setChatMessages] = useState([
-    { type: 'bot', text: 'Hi! I\'m the TriApt Assistant. Ask me anything about our platform - test topics, how it works, pricing, account creation, or any other questions about TriApt!' }
+    { type: 'bot', text: 'Hey there! 👋 I\'m your TriApt Assistant! I love sharing cool facts about our platform and asking questions to help you discover what makes TriApt awesome. Just type anything to get started!' }
   ]);
   const [chatInput, setChatInput] = useState('');
   const [openFAQ, setOpenFAQ] = useState(null);
