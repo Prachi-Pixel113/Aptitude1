@@ -102,7 +102,7 @@
 # Testing Data - Main Agent and testing sub agent both should log testing data below this section
 #====================================================================================================
 
-user_problem_statement: "Test the new random chatbot functionality on the TriApt landing page. The chatbot has been completely redesigned to show random TriApt-related questions and facts instead of keyword-based responses."
+user_problem_statement: "Change TriApt chatbot from specific keyword-based question-answer system to random questions and facts about TriApt - implementing options A (ask random questions), B (show random facts), and maintain interactive responses."
 
 frontend:
   - task: "Random Chatbot Functionality"
