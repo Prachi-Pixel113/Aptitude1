@@ -340,7 +340,7 @@ const LandingPage = ({ user, onLogout }) => {
         )}
         <button
           className="chatbot-toggle"
-          onClick={() => setChatOpen(!chatOpen)}
+          onClick={handleChatToggle}
         >
           <MessageCircle size={24} />
         </button>
