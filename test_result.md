@@ -127,7 +127,7 @@ metadata:
 
 test_plan:
   current_focus:
-    - "Random Chatbot Functionality"
+    - "Random Chatbot Implementation - Questions and Facts"
   stuck_tasks: []
   test_all: false
   test_priority: "high_first"
