@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Clock, Brain, Users, CheckCircle, MessageCircle, X } from 'lucide-react';
-import { mockFAQs, chatbotResponses } from '../mock';
+import { mockFAQs, chatbotResponses, fallbackResponses } from '../mock';
 
 const LandingPage = ({ user, onLogout }) => {
   const [enrollmentDeadline] = useState(new Date('2025-02-15T23:59:59'));
