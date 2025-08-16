@@ -116,67 +116,56 @@ export const mockAuthResponse = {
   message: "Login successful"
 };
 
-export const chatbotResponses = [
-  {
-    keywords: ["hello", "hi", "hey", "start", "help", "support"],
-    response: "Hello! Welcome to TriApt - your Computer Science & Engineering aptitude test platform. I'm here to help you with any questions about our platform, tests, features, or how to get started!"
-  },
-  {
-    keywords: ["test", "quiz", "questions", "exam", "aptitude", "practice"],
-    response: "Our aptitude tests cover essential CS & Engineering topics including Data Structures, Algorithms, OOP, Databases, Computer Networks, and Software Engineering. Each test has 10 carefully selected questions with multiple choice answers. Perfect for interview preparation!"
-  },
-  {
-    keywords: ["free", "cost", "price", "payment", "money", "charge"],
-    response: "Great news! TriApt is completely FREE for all students and professionals. No hidden charges, no subscriptions, no premium features - everything is accessible at no cost. We believe quality education should be free for everyone!"
-  },
-  {
-    keywords: ["time", "duration", "minutes", "hours", "long", "quick"],
-    response: "Each test takes about 15-20 minutes to complete. You get 20 minutes total, but most users finish in 15 minutes. It's designed to be quick yet comprehensive - perfect for daily practice sessions!"
-  },
-  {
-    keywords: ["topics", "subjects", "syllabus", "coverage", "content", "curriculum"],
-    response: "We cover 6 main areas: 📚 Data Structures & Algorithms, 🔧 Object-Oriented Programming, 🗄️ Database Management, 💻 Computer Architecture, 🌐 Computer Networks, and ⚙️ Software Engineering principles. All questions are sourced from real interview experiences!"
-  },
-  {
-    keywords: ["login", "signup", "register", "account", "create", "join"],
-    response: "Creating an account is super easy! Click 'Sign Up' to register with just your name, email, and password. Having an account lets you track your progress, save results, and see your improvement over time. It's completely free!"
-  },
-  {
-    keywords: ["score", "result", "performance", "percentage", "grade"],
-    response: "After completing a test, you'll see your score, percentage, and detailed results. We show which questions you got right/wrong and provide explanations. You can retake tests as many times as you want to improve!"
-  },
-  {
-    keywords: ["retake", "retry", "again", "repeat", "multiple", "times"],
-    response: "Absolutely! You can take tests as many times as you want. There's no limit! This is perfect for practicing and improving your understanding. Each attempt helps you learn and get better prepared for real interviews."
-  },
-  {
-    keywords: ["difficulty", "level", "hard", "easy", "beginner", "advanced"],
-    response: "Our questions are designed for intermediate level - suitable for students and professionals preparing for technical interviews. They're challenging enough to be meaningful but not overly complex. Perfect for building confidence!"
-  },
-  {
-    keywords: ["mobile", "phone", "tablet", "responsive", "device"],
-    response: "Yes! TriApt works perfectly on all devices - desktop, laptop, tablet, and mobile phones. Our responsive design ensures you get the same great experience whether you're studying at home or on the go!"
-  },
-  {
-    keywords: ["interview", "job", "preparation", "career", "placement"],
-    response: "TriApt is specifically designed for technical interview preparation! Our questions are based on real interview experiences from top companies. Regular practice here will definitely boost your confidence for actual interviews!"
-  },
-  {
-    keywords: ["update", "new", "fresh", "latest", "recent"],
-    response: "We regularly update our question bank with new problems and current industry trends. This ensures you're always practicing with relevant, up-to-date content that reflects what's actually asked in interviews today!"
-  },
-  {
-    keywords: ["progress", "track", "history", "improvement", "analytics"],
-    response: "With a free account, you can track your progress over time, see your test history, and monitor improvement across different topics. It's a great way to identify your strengths and areas that need more practice!"
-  },
-  {
-    keywords: ["why", "choose", "benefit", "advantage", "better"],
-    response: "TriApt offers: ✅ Completely FREE access, ✅ Real interview questions, ✅ Multiple attempts, ✅ Progress tracking, ✅ Works on all devices, ✅ No time pressure for learning, ✅ Instant results with explanations. It's designed by engineers, for engineers!"
-  },
-  {
-    keywords: ["triaapt", "name", "meaning", "about", "company", "who"],
-    response: "TriApt stands for 'Technical Readiness & Intelligence Aptitude Test' - we're focused on helping CS & Engineering students and professionals succeed in their technical careers through smart, accessible practice tests!"
-  }
+// Random questions the chatbot can ask users about TriApt
+export const randomTriAptQuestions = [
+  "What do you think about TriApt being completely free for everyone? 🤔",
+  "Which of our 6 main topics interests you the most - Data Structures, OOP, Databases, Computer Architecture, Networks, or Software Engineering? 📚",
+  "How do you usually prepare for technical interviews? Have you tried practice tests before? 💭",
+  "What's your biggest challenge when it comes to coding interviews? 🎯",
+  "Do you prefer practicing on mobile or desktop when studying? 📱💻",
+  "What motivated you to visit TriApt today? Are you preparing for a specific interview? 🚀",
+  "How important is it for you to track your progress while practicing? 📊",
+  "What do you think about the idea of taking unlimited practice tests? 🔄",
+  "Which programming concepts do you find most challenging - algorithms, databases, or system design? ⚙️",
+  "Do you think 15-20 minutes is the right duration for a practice test, or would you prefer longer/shorter? ⏱️",
+  "What features would make your technical interview preparation more effective? 💡",
+  "Have you ever felt overwhelmed by expensive coding bootcamps or paid platforms? 💸",
+  "What's your experience level - student, recent graduate, or experienced professional? 🎓",
+  "Do you think having instant results and explanations helps you learn better? ✨",
+  "What's more important to you - quantity of practice questions or quality explanations? 🤓",
+  "How often do you think someone should practice coding problems per week? 📅"
+];
+
+// Random facts and interesting content about TriApt
+export const randomTriAptFacts = [
+  "🎉 Fun fact: TriApt was designed by engineers who went through hundreds of technical interviews themselves!",
+  "💡 Did you know? Our question bank is constantly updated with problems from real interviews at top tech companies!",
+  "🌟 Amazing stat: Most TriApt users see a 40% improvement in their confidence after just 5 practice sessions!",
+  "🔥 Cool feature: You can retake tests unlimited times - we believe in learning through repetition!",
+  "🎯 Pro tip: Our questions cover exactly what you'll face in real interviews - no theoretical fluff!",
+  "📱 Tech fact: TriApt works seamlessly on any device - practice anywhere, anytime!",
+  "🚀 Mission fact: We believe quality technical education should be free and accessible to everyone!",
+  "⚡ Speed fact: Most users complete our tests in under 15 minutes, making it perfect for daily practice!",
+  "🎨 Design fact: Our interface is designed to reduce anxiety and help you focus on learning!",
+  "📊 Progress fact: With an account, you can track your improvement across all 6 technical areas!",
+  "🔍 Quality fact: Each question is carefully crafted to test real-world problem-solving skills!",
+  "💎 Value fact: TriApt provides the same quality as paid platforms but completely free!",
+  "🌈 Diversity fact: Our questions span from basic CS concepts to advanced engineering principles!",
+  "🎪 Engagement fact: Users who practice regularly are 3x more likely to ace their interviews!",
+  "🔮 Future fact: We're constantly adding new topics based on emerging industry trends!",
+  "🏆 Success fact: Thousands of engineers have landed their dream jobs after practicing on TriApt!"
+];
+
+// Motivational and engaging responses
+export const chatbotEngagementResponses = [
+  "That's awesome! 🌟 Here's something interesting about TriApt...",
+  "Great to hear from you! 😊 Let me share something cool...",
+  "Thanks for chatting! 🎉 Here's a fun TriApt fact...", 
+  "I love talking about TriApt! 💫 Did you know...",
+  "Exciting to connect! 🚀 Here's something you might find interesting...",
+  "Nice! 👌 Let me tell you something about our platform...",
+  "Happy to chat! 😄 Here's an interesting tidbit...",
+  "Cool! ✨ Here's something that makes TriApt special..."
 ];
 
 // Fallback responses for unmatched queries
