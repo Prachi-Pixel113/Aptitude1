@@ -31,6 +31,25 @@ const LandingPage = ({ user, onLogout }) => {
     return () => clearInterval(timer);
   }, [enrollmentDeadline]);
 
+  const handleChatToggle = () => {
+    setChatOpen(!chatOpen);
+    
+    // Send a random question or fact when chat is opened for the first time after closing
+    if (!chatOpen && chatMessages.length === 1) {
+      setTimeout(() => {
+        const shouldAskQuestion = Math.random() < 0.6; // 60% chance to ask question
+        
+        if (shouldAskQuestion) {
+          const randomQuestion = randomTriAptQuestions[Math.floor(Math.random() * randomTriAptQuestions.length)];
+          setChatMessages(prev => [...prev, { type: 'bot', text: randomQuestion }]);
+        } else {
+          const randomFact = randomTriAptFacts[Math.floor(Math.random() * randomTriAptFacts.length)];
+          setChatMessages(prev => [...prev, { type: 'bot', text: randomFact }]);
+        }
+      }, 1500);
+    }
+  };
+
   const handleChatSend = () => {
     if (!chatInput.trim()) return;
 
