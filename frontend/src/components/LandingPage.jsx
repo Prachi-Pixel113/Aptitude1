@@ -326,7 +326,7 @@ const LandingPage = ({ user, onLogout }) => {
               <div style={{ display: 'flex', gap: '0.5rem' }}>
                 <input
                   type="text"
-                  placeholder="Ask me anything..."
+                  placeholder="Say anything to get a random TriApt question or fact!"
                   value={chatInput}
                   onChange={(e) => setChatInput(e.target.value)}
                   onKeyPress={(e) => e.key === 'Enter' && handleChatSend()}
