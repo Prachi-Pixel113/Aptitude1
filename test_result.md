@@ -179,7 +179,11 @@ metadata:
 
 test_plan:
   current_focus:
+    - "Quiz Submission API - POST /api/quiz/submit"
+    - "Quiz Questions API - GET /api/quiz/questions"
     - "Quiz Submission Integration"
+    - "Quiz Summary UI - Review Screen"
+    - "Quiz Results Page - Score & Analysis"
   stuck_tasks: []
   test_all: false
   test_priority: "high_first"
