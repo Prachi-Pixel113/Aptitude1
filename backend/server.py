@@ -63,6 +63,110 @@ class QuizSubmissionResponse(BaseModel):
     message: str
     result: QuizResult
 
+# Mock questions data (same as frontend)
+MOCK_QUESTIONS = [
+    {
+        "id": 1,
+        "question": "What is the time complexity of binary search algorithm?",
+        "options": ["O(n)", "O(log n)", "O(n log n)", "O(n²)"],
+        "correctAnswer": 1,
+        "category": "Data Structures & Algorithms"
+    },
+    {
+        "id": 2,
+        "question": "Which of the following is NOT a principle of Object-Oriented Programming?",
+        "options": ["Encapsulation", "Inheritance", "Polymorphism", "Compilation"],
+        "correctAnswer": 3,
+        "category": "Object-Oriented Programming"
+    },
+    {
+        "id": 3,
+        "question": "In a relational database, what does ACID stand for?",
+        "options": [
+            "Atomicity, Consistency, Isolation, Durability",
+            "Association, Consistency, Isolation, Dependency",
+            "Atomicity, Concurrency, Isolation, Durability",
+            "Association, Concurrency, Integration, Dependency"
+        ],
+        "correctAnswer": 0,
+        "category": "Database Management"
+    },
+    {
+        "id": 4,
+        "question": "What is the purpose of a constructor in a class?",
+        "options": [
+            "To destroy objects",
+            "To initialize objects",
+            "To copy objects",
+            "To compare objects"
+        ],
+        "correctAnswer": 1,
+        "category": "Object-Oriented Programming"
+    },
+    {
+        "id": 5,
+        "question": "Which sorting algorithm has the best average-case time complexity?",
+        "options": ["Bubble Sort", "Selection Sort", "Merge Sort", "Insertion Sort"],
+        "correctAnswer": 2,
+        "category": "Data Structures & Algorithms"
+    },
+    {
+        "id": 6,
+        "question": "What does CPU stand for?",
+        "options": [
+            "Computer Processing Unit",
+            "Central Processing Unit",
+            "Core Processing Unit",
+            "Central Program Unit"
+        ],
+        "correctAnswer": 1,
+        "category": "Computer Architecture"
+    },
+    {
+        "id": 7,
+        "question": "In networking, what does HTTP stand for?",
+        "options": [
+            "HyperText Transfer Protocol",
+            "HyperText Transmission Protocol",
+            "HyperText Transport Protocol",
+            "HyperText Transfer Process"
+        ],
+        "correctAnswer": 0,
+        "category": "Computer Networks"
+    },
+    {
+        "id": 8,
+        "question": "Which of the following is a non-volatile memory?",
+        "options": ["RAM", "Cache", "ROM", "Register"],
+        "correctAnswer": 2,
+        "category": "Computer Architecture"
+    },
+    {
+        "id": 9,
+        "question": "What is the main advantage of using a linked list over an array?",
+        "options": [
+            "Random access",
+            "Dynamic size",
+            "Better cache performance",
+            "Less memory usage"
+        ],
+        "correctAnswer": 1,
+        "category": "Data Structures & Algorithms"
+    },
+    {
+        "id": 10,
+        "question": "In software engineering, what does DRY principle stand for?",
+        "options": [
+            "Don't Repeat Yourself",
+            "Do Repeat Yourself",
+            "Don't Rely Yourself",
+            "Do Rely Yourself"
+        ],
+        "correctAnswer": 0,
+        "category": "Software Engineering"
+    }
+]
+
 # Add your routes to the router instead of directly to app
 @api_router.get("/")
 async def root():
