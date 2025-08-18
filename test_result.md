@@ -154,8 +154,6 @@ metadata:
 
 test_plan:
   current_focus:
-    - "Quiz Submission API - POST /api/quiz/submit"
-    - "Quiz Questions API - GET /api/quiz/questions"
     - "Quiz Submission Integration"
   stuck_tasks: []
   test_all: false
