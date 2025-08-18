@@ -78,7 +78,8 @@ MOCK_QUESTIONS = [
         "question": "Which of the following is NOT a principle of Object-Oriented Programming?",
         "options": ["Encapsulation", "Inheritance", "Polymorphism", "Compilation"],
         "correctAnswer": 3,
-        "category": "Object-Oriented Programming"
+        "category": "Object-Oriented Programming",
+        "explanation": "Compilation is not a principle of OOP. The four main principles are Encapsulation (data hiding), Inheritance (deriving new classes), Polymorphism (multiple forms), and Abstraction (hiding complexity)."
     },
     {
         "id": 3,
@@ -90,7 +91,8 @@ MOCK_QUESTIONS = [
             "Association, Concurrency, Integration, Dependency"
         ],
         "correctAnswer": 0,
-        "category": "Database Management"
+        "category": "Database Management",
+        "explanation": "ACID stands for Atomicity (all or nothing), Consistency (valid state), Isolation (concurrent transactions don't interfere), and Durability (committed changes persist). These properties ensure reliable database transactions."
     },
     {
         "id": 4,
@@ -102,14 +104,16 @@ MOCK_QUESTIONS = [
             "To compare objects"
         ],
         "correctAnswer": 1,
-        "category": "Object-Oriented Programming"
+        "category": "Object-Oriented Programming",
+        "explanation": "A constructor is a special method that initializes objects when they are created. It sets initial values for object attributes and performs any setup required for the object to function properly."
     },
     {
         "id": 5,
         "question": "Which sorting algorithm has the best average-case time complexity?",
         "options": ["Bubble Sort", "Selection Sort", "Merge Sort", "Insertion Sort"],
         "correctAnswer": 2,
-        "category": "Data Structures & Algorithms"
+        "category": "Data Structures & Algorithms",
+        "explanation": "Merge Sort has O(n log n) average-case complexity, which is optimal for comparison-based sorting. Bubble Sort, Selection Sort, and Insertion Sort all have O(n²) average-case complexity."
     },
     {
         "id": 6,
@@ -121,7 +125,8 @@ MOCK_QUESTIONS = [
             "Central Program Unit"
         ],
         "correctAnswer": 1,
-        "category": "Computer Architecture"
+        "category": "Computer Architecture",
+        "explanation": "CPU stands for Central Processing Unit. It's the primary component of a computer that performs most of the processing inside the computer by executing instructions of computer programs."
     },
     {
         "id": 7,
@@ -133,14 +138,16 @@ MOCK_QUESTIONS = [
             "HyperText Transfer Process"
         ],
         "correctAnswer": 0,
-        "category": "Computer Networks"
+        "category": "Computer Networks",
+        "explanation": "HTTP stands for HyperText Transfer Protocol. It's an application-layer protocol used for transmitting hypermedia documents, such as HTML, and is the foundation of data communication on the World Wide Web."
     },
     {
         "id": 8,
         "question": "Which of the following is a non-volatile memory?",
         "options": ["RAM", "Cache", "ROM", "Register"],
         "correctAnswer": 2,
-        "category": "Computer Architecture"
+        "category": "Computer Architecture",
+        "explanation": "ROM (Read-Only Memory) is non-volatile memory that retains data even when power is removed. RAM, Cache, and Registers are volatile memories that lose their contents when power is turned off."
     },
     {
         "id": 9,
@@ -152,7 +159,8 @@ MOCK_QUESTIONS = [
             "Less memory usage"
         ],
         "correctAnswer": 1,
-        "category": "Data Structures & Algorithms"
+        "category": "Data Structures & Algorithms",
+        "explanation": "Linked lists have dynamic size, allowing insertion and deletion without declaring a fixed size beforehand. Arrays have fixed size and better cache performance, but linked lists provide flexibility in memory allocation."
     },
     {
         "id": 10,
@@ -164,7 +172,8 @@ MOCK_QUESTIONS = [
             "Do Rely Yourself"
         ],
         "correctAnswer": 0,
-        "category": "Software Engineering"
+        "category": "Software Engineering",
+        "explanation": "DRY stands for 'Don't Repeat Yourself'. It's a principle aimed at reducing repetition of software patterns and code duplication. Instead, use abstractions and avoid redundant code to improve maintainability."
     }
 ]
 
