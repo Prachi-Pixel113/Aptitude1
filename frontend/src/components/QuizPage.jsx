@@ -15,11 +15,27 @@ const QuizPage = ({ user, onLogout }) => {
   useEffect(() => {
     const fetchQuestions = async () => {
       try {
-        const questionsData = await mockAPI.getQuestions();
-        setQuestions(questionsData);
+        const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/quiz/questions`);
+        const data = await response.json();
+        
+        if (data.success) {
+          setQuestions(data.questions);
+        } else {
+          console.error('Failed to fetch questions:', data.error);
+          // Fallback to mock data if API fails
+          const questionsData = await mockAPI.getQuestions();
+          setQuestions(questionsData);
+        }
         setLoading(false);
       } catch (error) {
         console.error('Error fetching questions:', error);
+        // Fallback to mock data if API fails
+        try {
+          const questionsData = await mockAPI.getQuestions();
+          setQuestions(questionsData);
+        } catch (fallbackError) {
+          console.error('Fallback also failed:', fallbackError);
+        }
         setLoading(false);
       }
     };
