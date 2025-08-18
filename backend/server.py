@@ -243,6 +243,16 @@ async def submit_quiz(submission: QuizSubmission):
             result=error_result
         )
 
+@api_router.get("/quiz/questions")
+async def get_quiz_questions():
+    """Get all quiz questions"""
+    try:
+        logger.info("Quiz questions requested")
+        return {"success": True, "questions": MOCK_QUESTIONS}
+    except Exception as e:
+        logger.error(f"Error fetching questions: {str(e)}")
+        return {"success": False, "error": str(e), "questions": []}
+
 # Include the router in the main app
 app.include_router(api_router)
 
