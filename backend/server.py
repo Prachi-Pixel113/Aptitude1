@@ -57,6 +57,7 @@ class QuizResult(BaseModel):
     percentage: int
     time_taken: int
     timestamp: datetime = Field(default_factory=datetime.utcnow)
+    detailed_results: List[Dict[str, Any]] = []
 
 class QuizSubmissionResponse(BaseModel):
     success: bool
