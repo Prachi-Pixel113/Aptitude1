@@ -102,23 +102,44 @@
 # Testing Data - Main Agent and testing sub agent both should log testing data below this section
 #====================================================================================================
 
-user_problem_statement: "Change TriApt chatbot from specific keyword-based question-answer system to random questions and facts about TriApt - implementing options A (ask random questions), B (show random facts), and maintain interactive responses."
+user_problem_statement: "Implement quiz submission functionality - when the user finishes the last question, trigger API call to POST /api/quiz/submit with user's answers and handle the response."
 
-frontend:
-  - task: "Random Chatbot Implementation - Questions and Facts"
+backend:
+  - task: "Quiz Submission API - POST /api/quiz/submit"
     implemented: true
-    working: true
-    file: "/app/frontend/src/mock.js, /app/frontend/src/components/LandingPage.jsx"
+    working: false
+    file: "/app/backend/server.py"
     stuck_count: 0
     priority: "high"
-    needs_retesting: false
+    needs_retesting: true
     status_history:
-        - working: true
+        - working: false
           agent: "main"
-          comment: "Successfully implemented random chatbot system by replacing keyword-based chatbotResponses with: 1) randomTriAptQuestions array (16 engaging questions about TriApt), 2) randomTriAptFacts array (16 interesting facts about platform), 3) chatbotEngagementResponses for variety. Updated handleChatSend() logic to randomly choose between questions, facts, or combination responses. Added automatic welcome message when chat opens. Changed placeholder text to encourage interaction."
-        - working: true
-          agent: "testing"
-          comment: "Comprehensive testing completed successfully. Chatbot toggle works perfectly, opens/closes chat window correctly. Initial welcome message displays properly. Automatic random message appears after 1.5 seconds as expected. Placeholder text is correct: 'Say anything to get a random TriApt question or fact!'. All 4 test messages (hello, test, cool, awesome) generated unique random responses demonstrating excellent randomness. Responses include both questions and facts about TriApt. Content is engaging and TriApt-focused. No keyword matching - truly random responses as designed. All core functionality working as specified."
+          comment: "Implemented complete quiz submission API with Pydantic models (QuizSubmission, QuizResult, QuizSubmissionResponse), score calculation function, MongoDB storage, and GET /api/quiz/questions endpoint. Added proper error handling and logging. Ready for testing."
+  - task: "Quiz Questions API - GET /api/quiz/questions"
+    implemented: true
+    working: false
+    file: "/app/backend/server.py"
+    stuck_count: 0
+    priority: "medium"
+    needs_retesting: true
+    status_history:
+        - working: false
+          agent: "main"
+          comment: "Added API endpoint to serve quiz questions instead of using only mock data. Provides fallback mechanism and proper error handling."
+
+frontend:
+  - task: "Quiz Submission Integration"
+    implemented: true
+    working: false
+    file: "/app/frontend/src/components/QuizPage.jsx"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: true
+    status_history:
+        - working: false
+          agent: "main"
+          comment: "Updated QuizPage.jsx to integrate with backend APIs: 1) Modified fetchQuestions to use /api/quiz/questions with fallback to mock data, 2) Updated handleQuizComplete to call POST /api/quiz/submit with user answers, time taken, and user info, 3) Added submission states (submitting, submitError), 4) Added loading indicators and error messages, 5) Updated Complete Quiz button to show submission status. Maintains backward compatibility with local calculation as fallback."
 
 metadata:
   created_by: "testing_agent"
