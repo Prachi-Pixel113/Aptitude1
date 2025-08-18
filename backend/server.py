@@ -209,8 +209,31 @@ def calculate_quiz_score(answers: Dict[str, int]) -> int:
 @api_router.post("/quiz/submit", response_model=QuizSubmissionResponse)
 async def submit_quiz(submission: QuizSubmission):
     try:
-        # Calculate score
-        score = calculate_quiz_score(submission.answers)
+        # Calculate score and detailed results
+        score = 0
+        detailed_results = []
+        
+        for question in MOCK_QUESTIONS:
+            question_id_str = str(question["id"])
+            user_answer = submission.answers.get(question_id_str, -1)
+            is_correct = user_answer == question["correctAnswer"]
+            
+            if is_correct:
+                score += 1
+            
+            # Create detailed result for this question
+            question_result = {
+                "question_id": question["id"],
+                "question": question["question"],
+                "options": question["options"],
+                "user_answer": user_answer,
+                "correct_answer": question["correctAnswer"],
+                "is_correct": is_correct,
+                "explanation": question["explanation"],
+                "category": question["category"]
+            }
+            detailed_results.append(question_result)
+        
         percentage = round((score / submission.total_questions) * 100)
         
         # Create quiz result object
@@ -221,7 +244,8 @@ async def submit_quiz(submission: QuizSubmission):
             score=score,
             total_questions=submission.total_questions,
             percentage=percentage,
-            time_taken=submission.time_taken
+            time_taken=submission.time_taken,
+            detailed_results=detailed_results
         )
         
         # Store in database
@@ -246,7 +270,8 @@ async def submit_quiz(submission: QuizSubmission):
             score=0,
             total_questions=submission.total_questions,
             percentage=0,
-            time_taken=submission.time_taken
+            time_taken=submission.time_taken,
+            detailed_results=[]
         )
         return QuizSubmissionResponse(
             success=False,
