@@ -75,6 +75,18 @@ const QuizPage = ({ user, onLogout }) => {
     });
   };
 
+  const isAllQuestionsAnswered = () => {
+    return questions.length > 0 && Object.keys(selectedAnswers).length === questions.length;
+  };
+
+  const getAnsweredCount = () => {
+    return Object.keys(selectedAnswers).length;
+  };
+
+  const getSkippedCount = () => {
+    return questions.length - getAnsweredCount();
+  };
+
   const handleNext = () => {
     if (currentQuestionIndex < questions.length - 1) {
       setCurrentQuestionIndex(currentQuestionIndex + 1);
