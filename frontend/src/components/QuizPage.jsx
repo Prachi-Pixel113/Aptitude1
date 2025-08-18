@@ -371,13 +371,13 @@ const QuizPage = ({ user, onLogout }) => {
             <button
               onClick={handleQuizComplete}
               className="btn-primary"
-              disabled={selectedAnswers[currentQuestion?.id] === undefined}
+              disabled={selectedAnswers[currentQuestion?.id] === undefined || submitting}
               style={{
-                opacity: selectedAnswers[currentQuestion?.id] === undefined ? 0.5 : 1,
-                cursor: selectedAnswers[currentQuestion?.id] === undefined ? 'not-allowed' : 'pointer'
+                opacity: (selectedAnswers[currentQuestion?.id] === undefined || submitting) ? 0.5 : 1,
+                cursor: (selectedAnswers[currentQuestion?.id] === undefined || submitting) ? 'not-allowed' : 'pointer'
               }}
             >
-              Complete Quiz
+              {submitting ? 'Submitting...' : 'Complete Quiz'}
             </button>
           ) : (
             <button
