@@ -90,6 +90,9 @@ const QuizPage = ({ user, onLogout }) => {
   const handleNext = () => {
     if (currentQuestionIndex < questions.length - 1) {
       setCurrentQuestionIndex(currentQuestionIndex + 1);
+    } else if (currentQuestionIndex === questions.length - 1 && isAllQuestionsAnswered()) {
+      // Show summary if all questions are answered
+      setShowSummary(true);
     }
   };
 
