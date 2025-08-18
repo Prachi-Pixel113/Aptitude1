@@ -35,6 +35,34 @@ class StatusCheck(BaseModel):
 class StatusCheckCreate(BaseModel):
     client_name: str
 
+# Quiz Models
+class QuizAnswer(BaseModel):
+    question_id: int
+    selected_answer: int
+
+class QuizSubmission(BaseModel):
+    user_name: str
+    user_email: str
+    answers: Dict[str, int]  # question_id -> selected_answer_index
+    time_taken: int  # in seconds
+    total_questions: int
+
+class QuizResult(BaseModel):
+    id: str = Field(default_factory=lambda: str(uuid.uuid4()))
+    user_name: str
+    user_email: str
+    answers: Dict[str, int]
+    score: int
+    total_questions: int
+    percentage: int
+    time_taken: int
+    timestamp: datetime = Field(default_factory=datetime.utcnow)
+
+class QuizSubmissionResponse(BaseModel):
+    success: bool
+    message: str
+    result: QuizResult
+
 # Add your routes to the router instead of directly to app
 @api_router.get("/")
 async def root():
