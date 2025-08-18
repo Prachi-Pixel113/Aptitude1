@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Brain, Clock, ChevronRight, ChevronLeft, RotateCcw, LogOut } from 'lucide-react';
 import { mockAPI } from '../mock';
+import QuizResults from './QuizResults';
 
 const QuizPage = ({ user, onLogout }) => {
   const [questions, setQuestions] = useState([]);
