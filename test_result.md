@@ -146,6 +146,9 @@ frontend:
         - working: false
           agent: "main"
           comment: "Updated QuizPage.jsx to integrate with backend APIs: 1) Modified fetchQuestions to use /api/quiz/questions with fallback to mock data, 2) Updated handleQuizComplete to call POST /api/quiz/submit with user answers, time taken, and user info, 3) Added submission states (submitting, submitError), 4) Added loading indicators and error messages, 5) Updated Complete Quiz button to show submission status. Maintains backward compatibility with local calculation as fallback."
+        - working: false
+          agent: "main"
+          comment: "Added comprehensive Quiz Summary UI as requested: 1) New showSummary state and UI screen, 2) Question Summary header with timer, 3) Warning message for completed questions, 4) Circular progress indicator showing total questions, 5) Statistics showing answered vs skipped questions, 6) Interactive question status grid (1-10), 7) Close and Finish buttons, 8) Review & Submit button logic when all questions answered. Users can now review all answers before final submission."
 
 metadata:
   created_by: "main_agent"
