@@ -544,11 +544,11 @@ const QuizPage = ({ user, onLogout }) => {
             <button
               onClick={handleQuizComplete}
               className="btn-primary"
-              disabled={submitting}
+              disabled={submitting || getSkippedCount() > 0}
               style={{
                 minWidth: '120px',
-                opacity: submitting ? 0.5 : 1,
-                cursor: submitting ? 'not-allowed' : 'pointer'
+                opacity: (submitting || getSkippedCount() > 0) ? 0.5 : 1,
+                cursor: (submitting || getSkippedCount() > 0) ? 'not-allowed' : 'pointer'
               }}
             >
               {submitting ? 'Submitting...' : 'Finish'}
