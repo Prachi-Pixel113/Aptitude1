@@ -167,6 +167,8 @@ const QuizPage = ({ user, onLogout }) => {
     setTimeLeft(20 * 60);
     setQuizCompleted(false);
     setShowSummary(false);
+    setShowResults(false);
+    setQuizResults(null);
     setScore(0);
     setSubmitting(false);
     setSubmitError(null);
