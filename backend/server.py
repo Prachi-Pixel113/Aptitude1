@@ -70,7 +70,8 @@ MOCK_QUESTIONS = [
         "question": "What is the time complexity of binary search algorithm?",
         "options": ["O(n)", "O(log n)", "O(n log n)", "O(n²)"],
         "correctAnswer": 1,
-        "category": "Data Structures & Algorithms"
+        "category": "Data Structures & Algorithms",
+        "explanation": "Binary search divides the search space in half with each comparison, making it O(log n). It works by comparing the target with the middle element and eliminating half of the remaining elements."
     },
     {
         "id": 2,
