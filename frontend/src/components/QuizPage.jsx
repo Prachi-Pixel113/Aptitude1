@@ -86,15 +86,58 @@ const QuizPage = ({ user, onLogout }) => {
     }
   };
 
-  const handleQuizComplete = () => {
-    let correctCount = 0;
-    questions.forEach((question) => {
-      if (selectedAnswers[question.id] === question.correctAnswer) {
-        correctCount++;
+  const handleQuizComplete = async () => {
+    setSubmitting(true);
+    setSubmitError(null);
+    
+    try {
+      // Calculate time taken (initial time was 20 minutes = 1200 seconds)
+      const timeTaken = 1200 - timeLeft;
+      
+      // Prepare submission data
+      const submissionData = {
+        user_name: user.name,
+        user_email: user.email,
+        answers: selectedAnswers,
+        time_taken: timeTaken,
+        total_questions: questions.length
+      };
+      
+      // Submit to backend
+      const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/quiz/submit`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(submissionData)
+      });
+      
+      const data = await response.json();
+      
+      if (data.success) {
+        setScore(data.result.score);
+        setQuizCompleted(true);
+        console.log('Quiz submitted successfully:', data);
+      } else {
+        throw new Error(data.message || 'Failed to submit quiz');
       }
-    });
-    setScore(correctCount);
-    setQuizCompleted(true);
+      
+    } catch (error) {
+      console.error('Error submitting quiz:', error);
+      setSubmitError(error.message);
+      
+      // Fallback to local calculation if API fails
+      let correctCount = 0;
+      questions.forEach((question) => {
+        if (selectedAnswers[question.id] === question.correctAnswer) {
+          correctCount++;
+        }
+      });
+      setScore(correctCount);
+      setQuizCompleted(true);
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   const handleRestart = () => {
