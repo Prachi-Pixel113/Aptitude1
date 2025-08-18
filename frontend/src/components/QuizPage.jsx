@@ -343,21 +343,33 @@ const QuizPage = ({ user, onLogout }) => {
           {/* Warning Message */}
           <div style={{ 
             padding: '1rem', 
-            backgroundColor: '#fef3cd', 
-            border: '1px solid #fbbf24',
+            backgroundColor: getSkippedCount() > 0 ? '#fee2e2' : '#fef3cd', 
+            border: `1px solid ${getSkippedCount() > 0 ? '#ef4444' : '#fbbf24'}`,
             borderRadius: '8px',
             marginBottom: '2rem',
             display: 'flex',
             alignItems: 'flex-start',
             gap: '0.75rem'
           }}>
-            <div style={{ color: '#f59e0b', fontSize: '1.25rem' }}>⚠️</div>
+            <div style={{ color: getSkippedCount() > 0 ? '#ef4444' : '#f59e0b', fontSize: '1.25rem' }}>
+              {getSkippedCount() > 0 ? '⚠️' : '✅'}
+            </div>
             <div>
-              <div className="body-medium" style={{ fontWeight: '600', color: '#92400e', marginBottom: '0.25rem' }}>
-                You have gone through all the questions.
+              <div className="body-medium" style={{ 
+                fontWeight: '600', 
+                color: getSkippedCount() > 0 ? '#dc2626' : '#92400e', 
+                marginBottom: '0.25rem' 
+              }}>
+                {getSkippedCount() > 0 
+                  ? `You have ${getSkippedCount()} unanswered questions remaining.`
+                  : 'You have answered all the questions!'
+                }
               </div>
-              <div className="body-small" style={{ color: '#92400e' }}>
-                Either browse through them once again or Finish your assessment.
+              <div className="body-small" style={{ color: getSkippedCount() > 0 ? '#dc2626' : '#92400e' }}>
+                {getSkippedCount() > 0 
+                  ? 'Please review and answer all questions before submitting.'
+                  : 'Review your answers and click Finish to submit your assessment.'
+                }
               </div>
             </div>
           </div>
