@@ -446,7 +446,6 @@ const QuizPage = ({ user, onLogout }) => {
       </div>
     </div>
   );
-  }
 
   if (showSummary) {
     return (
