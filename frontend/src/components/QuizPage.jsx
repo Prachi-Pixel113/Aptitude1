@@ -12,6 +12,8 @@ const QuizPage = ({ user, onLogout }) => {
   const [loading, setLoading] = useState(true);
   const [quizCompleted, setQuizCompleted] = useState(false);
   const [showSummary, setShowSummary] = useState(false);
+  const [showResults, setShowResults] = useState(false);
+  const [quizResults, setQuizResults] = useState(null);
   const [score, setScore] = useState(0);
   const [submitting, setSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState(null);
