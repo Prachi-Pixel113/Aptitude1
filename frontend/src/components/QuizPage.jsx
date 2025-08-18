@@ -176,6 +176,19 @@ const QuizPage = ({ user, onLogout }) => {
               <p className="body-large" style={{ color: 'var(--text-secondary)' }}>
                 Great job, {user.name}! Here are your results:
               </p>
+              {submitError && (
+                <div style={{ 
+                  padding: '0.75rem', 
+                  backgroundColor: '#fee2e2', 
+                  border: '1px solid #fecaca',
+                  borderRadius: '6px',
+                  marginTop: '1rem'
+                }}>
+                  <p className="body-small" style={{ margin: 0, color: '#dc2626' }}>
+                    ⚠️ Submission failed: {submitError}. Results calculated locally.
+                  </p>
+                </div>
+              )}
             </div>
 
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(150px, 1fr))', gap: '1rem', marginBottom: '2rem' }}>
