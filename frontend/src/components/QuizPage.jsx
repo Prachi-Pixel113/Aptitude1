@@ -675,26 +675,17 @@ const QuizPage = ({ user, onLogout }) => {
           </div>
 
           {currentQuestionIndex === questions.length - 1 ? (
-            isAllQuestionsAnswered() ? (
-              <button
-                onClick={() => setShowSummary(true)}
-                className="btn-primary"
-              >
-                Review & Submit
-              </button>
-            ) : (
-              <button
-                onClick={handleQuizComplete}
-                className="btn-primary"
-                disabled={selectedAnswers[currentQuestion?.id] === undefined || submitting}
-                style={{
-                  opacity: (selectedAnswers[currentQuestion?.id] === undefined || submitting) ? 0.5 : 1,
-                  cursor: (selectedAnswers[currentQuestion?.id] === undefined || submitting) ? 'not-allowed' : 'pointer'
-                }}
-              >
-                {submitting ? 'Submitting...' : 'Complete Quiz'}
-              </button>
-            )
+            <button
+              onClick={() => setShowSummary(true)}
+              className="btn-primary"
+              disabled={selectedAnswers[currentQuestion?.id] === undefined}
+              style={{
+                opacity: selectedAnswers[currentQuestion?.id] === undefined ? 0.5 : 1,
+                cursor: selectedAnswers[currentQuestion?.id] === undefined ? 'not-allowed' : 'pointer'
+              }}
+            >
+              Review & Submit
+            </button>
           ) : (
             <button
               onClick={handleNext}
