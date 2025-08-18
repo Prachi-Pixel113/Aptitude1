@@ -188,6 +188,17 @@ const QuizPage = ({ user, onLogout }) => {
     );
   }
 
+  if (showResults && quizResults) {
+    return (
+      <QuizResults 
+        user={user}
+        onLogout={onLogout}
+        results={quizResults}
+        onRestart={handleRestart}
+      />
+    );
+  }
+
   if (quizCompleted) {
     const percentage = Math.round((score / questions.length) * 100);
     return (
