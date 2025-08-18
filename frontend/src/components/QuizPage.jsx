@@ -10,6 +10,7 @@ const QuizPage = ({ user, onLogout }) => {
   const [timeLeft, setTimeLeft] = useState(20 * 60); // 20 minutes in seconds
   const [loading, setLoading] = useState(true);
   const [quizCompleted, setQuizCompleted] = useState(false);
+  const [showSummary, setShowSummary] = useState(false);
   const [score, setScore] = useState(0);
   const [submitting, setSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState(null);
