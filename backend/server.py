@@ -184,6 +184,65 @@ async def get_status_checks():
     status_checks = await db.status_checks.find().to_list(1000)
     return [StatusCheck(**status_check) for status_check in status_checks]
 
+def calculate_quiz_score(answers: Dict[str, int]) -> int:
+    """Calculate the quiz score based on user answers"""
+    score = 0
+    for question in MOCK_QUESTIONS:
+        question_id_str = str(question["id"])
+        if question_id_str in answers:
+            user_answer = answers[question_id_str]
+            if user_answer == question["correctAnswer"]:
+                score += 1
+    return score
+
+@api_router.post("/quiz/submit", response_model=QuizSubmissionResponse)
+async def submit_quiz(submission: QuizSubmission):
+    try:
+        # Calculate score
+        score = calculate_quiz_score(submission.answers)
+        percentage = round((score / submission.total_questions) * 100)
+        
+        # Create quiz result object
+        quiz_result = QuizResult(
+            user_name=submission.user_name,
+            user_email=submission.user_email,
+            answers=submission.answers,
+            score=score,
+            total_questions=submission.total_questions,
+            percentage=percentage,
+            time_taken=submission.time_taken
+        )
+        
+        # Store in database
+        result_dict = quiz_result.dict()
+        await db.quiz_results.insert_one(result_dict)
+        
+        logger.info(f"Quiz submitted successfully for user: {submission.user_name}, Score: {score}/{submission.total_questions}")
+        
+        return QuizSubmissionResponse(
+            success=True,
+            message="Quiz submitted successfully",
+            result=quiz_result
+        )
+        
+    except Exception as e:
+        logger.error(f"Error submitting quiz: {str(e)}")
+        # Return error response but still with proper structure
+        error_result = QuizResult(
+            user_name=submission.user_name,
+            user_email=submission.user_email,
+            answers=submission.answers,
+            score=0,
+            total_questions=submission.total_questions,
+            percentage=0,
+            time_taken=submission.time_taken
+        )
+        return QuizSubmissionResponse(
+            success=False,
+            message=f"Error submitting quiz: {str(e)}",
+            result=error_result
+        )
+
 # Include the router in the main app
 app.include_router(api_router)
 
