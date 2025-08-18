@@ -134,8 +134,10 @@ const QuizPage = ({ user, onLogout }) => {
       const data = await response.json();
       
       if (data.success) {
-        setScore(data.result.score);
-        setQuizCompleted(true);
+        setQuizResults(data.result);
+        setShowResults(true);
+        setShowSummary(false);
+        setQuizCompleted(false);
         console.log('Quiz submitted successfully:', data);
       } else {
         throw new Error(data.message || 'Failed to submit quiz');
